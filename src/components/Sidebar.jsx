@@ -13,9 +13,9 @@ export default function Sidebar() {
 
   return (
     <div
-      className={`sidebar py-6 px-4 transition duration-300 ease-in-out min-h-screen flex flex-col justify-between bg-gray-100 ${
-        extended ? "w-64" : "w-16"
-      }`}
+      className={`sidebar py-6 px-4 transition duration-300 ease-in-out min-h-screen flex flex-col justify-between bg-gray-100 
+      
+      `}
     >
       <div className="top">
         <IoMenu
