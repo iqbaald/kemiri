@@ -10,8 +10,47 @@
 #root {
   min-height: 100vh;
   display: flex;
+  animation: fadeIn 1.5s;
 }
 
 body {
   font-family: "poppins";
+}
+
+.result::-webkit-scrollbar {
+  display: none;
+}
+
+.result-text {
+  line-height: 1.8;
+}
+
+.loader hr {
+  background-size: 800px 50px;
+  animation: slepet 3s infinite linear;
+}
+
+.fade-in {
+  animation: fadeIn 1.5s;
+}
+.sidebar .recent {
+  animation: fadeIn 1.5s;
+}
+
+@keyframes slepet {
+  0% {
+    background-position: -800px 0px;
+  }
+  100% {
+    background-position: 800px 0px;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
