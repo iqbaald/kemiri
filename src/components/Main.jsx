@@ -67,7 +67,7 @@ export default function Main() {
         <div className="flex  w-1/4 justify-end gap-2">
           <button
             onClick={() => newChat()}
-            className="new-chat p-2 gap-2 inline-flex items-center  text-neutral-900 bg-neutral-200 dark:text-white dark:bg-neutral-600 text-lg rounded-full cursor-pointer dark:hover:bg-neutral-950  hover:bg-neutral-300"
+            className="new-chat lg:hidden p-2 gap-2 inline-flex items-center  text-neutral-900 bg-neutral-200 dark:text-white dark:bg-neutral-600 text-lg rounded-full cursor-pointer dark:hover:bg-neutral-950  hover:bg-neutral-300"
           >
             <GoPlus className="w-6" />
           </button>
@@ -81,7 +81,7 @@ export default function Main() {
               <MdOutlineLightMode className="w-6" />
             )}
           </button>
-          <div className="border-r m-2  border-neutral-800 dark:border-neutral-200"></div>
+          <div className="line border-r m-2 lg:hidden border-neutral-800 dark:border-neutral-200"></div>
           <img
             src={profilePic}
             alt="pp"
