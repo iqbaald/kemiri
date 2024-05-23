@@ -2,6 +2,10 @@
 
 This is a portfolio website project inspired by Gemini AI and ChatGPT, showcasing the capabilities of AI technologies in web development.
 
+## Visit the Website
+
+To view the live website, visit [http://iqbaald.github.io/tanya-ai](http://iqbaald.github.io/tanya-ai).
+
 ## Features
 
 - **AI-Powered Content**: Utilizes AI technologies like Gemini AI and ChatGPT to generate dynamic and engaging content.
