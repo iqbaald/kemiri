@@ -29,13 +29,13 @@ export default function Main() {
   };
 
   const card =
-    " p-4 rounded-xl relative text-neutral-800 bg-neutral-100 hover:bg-neutral-200";
+    " p-4 rounded-xl relative text-neutral-800 bg-neutral-100 hover:bg-neutral-200 max-lg:h-40 ";
   const icon =
     "absolute bottom-0 right-0 w-8 h-8 m-4 p-[6px] bg-white rounded-full";
 
   return (
-    <div className="main flex-1 relative">
-      <div className="nav p-4 flex flex-row justify-between items-center">
+    <div className="main flex-1 relative ">
+      <div className="nav p-4 flex flex-row justify-between items-center max-lg:fixed max-lg:w-full  bg-white">
         <h1 className="px-2 text-xl">Kemiri</h1>
         <img
           src={profilePic}
@@ -44,7 +44,7 @@ export default function Main() {
         />
       </div>
 
-      <div className="main-container m-auto bg-white max-w-[900px]">
+      <div className="main-container m-auto bg-white max-w-[900px] max-lg:py-20">
         {!showResult ? (
           <>
             <div className="greet max-lg:text-4xl px-6 my-6 text-5xl font-semibold ">
@@ -54,7 +54,7 @@ export default function Main() {
               <h1 className="text-neutral-300">Ada yang bisa aku bantu?</h1>
             </div>
 
-            <div className="cards h-64 p-6 grid grid-cols-4 gap-2">
+            <div className="cards h-64 p-6 grid grid-cols-4 max-lg:grid-cols-1  gap-2">
               <a href="" className={`${card}`}>
                 <p className="text">
                   Suggest a Javascript library to solve a problem
