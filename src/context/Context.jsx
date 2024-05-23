@@ -12,6 +12,8 @@ const ContextProvider = (props) => {
   const [loading, setLoading] = useState(false);
   const [resultData, setResultData] = useState("");
 
+  const [darkMode, setDarkMode] = useState(false);
+
   const newChat = () => {
     setLoading(false);
     setShowResult(false);
@@ -94,6 +96,8 @@ const ContextProvider = (props) => {
     resultData,
     onSent,
     newChat,
+    darkMode,
+    setDarkMode,
   };
 
   return (
