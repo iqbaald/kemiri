@@ -1,6 +1,7 @@
 import { createContext, useState } from "react";
 import runChat from "../config/api";
 import PropTypes from "prop-types";
+import markdownit from "markdown-it";
 
 export const Context = createContext();
 
@@ -28,34 +29,33 @@ const ContextProvider = (props) => {
   };
 
   // Translate and format raw response from Gemini
+  // const formatResponse = (response) => {
+  //   // Pisahkan per paragraf
+  //   const paragraphs = response.split("\n\n");
 
-  const formatResponse = (response) => {
-    // Pisahkan per paragraf
-    const paragraphs = response.split("\n\n");
+  //   // Tambahkan <br> di antara paragraf
+  //   const paragraphFilter = paragraphs
+  //     .map((item) => item + "<br><br>")
+  //     .join("");
 
-    // Tambahkan <br> di antara paragraf
-    const paragraphFilter = paragraphs
-      .map((item) => item + "<br><br>")
-      .join("");
+  //   // Ubah tanda "**" jadi bold
+  //   const boldFilter = paragraphFilter
+  //     .split("**")
+  //     .map((part, index) => {
+  //       return index % 2 === 0 ? part : `<b>${part}</b>`;
+  //     })
+  //     .join("");
 
-    // Ubah tanda "**" jadi bold
-    const boldFilter = paragraphFilter
-      .split("**")
-      .map((part, index) => {
-        return index % 2 === 0 ? part : `<b>${part}</b>`;
-      })
-      .join("");
+  //   // Ubah tanda "*" menjadi poin-poin menggunakan tag <li> atau "- "
+  //   const formattedResponse = boldFilter
+  //     .split("* ")
+  //     .map((part, index) => {
+  //       return index === 0 ? part : `<li>${part}</li>`;
+  //     })
+  //     .join("");
 
-    // Ubah tanda "*" menjadi poin-poin menggunakan tag <li> atau "- "
-    const formattedResponse = boldFilter
-      .split("* ")
-      .map((part, index) => {
-        return index === 0 ? part : `<li>${part}</li>`;
-      })
-      .join("");
-
-    return formattedResponse;
-  };
+  //   return formattedResponse;
+  // };
 
   const onSent = async (prompt) => {
     setInput("");
@@ -73,11 +73,15 @@ const ContextProvider = (props) => {
     }
 
     // Translate and format raw response from Gemini
-    const formattedResponse = formatResponse(response);
+    // const formattedResponse = formatResponse(response);
+    const md = markdownit();
+
+    const result = md.render(response);
 
     setLoading(false);
+    console.log(result);
 
-    let resultArray = formattedResponse.split(" ");
+    let resultArray = result.split(" ");
     for (let i = 0; i < resultArray.length; i++) {
       const nextWord = resultArray[i];
       typeAnimation(i, nextWord + " ");

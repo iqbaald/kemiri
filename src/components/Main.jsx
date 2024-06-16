@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { profilePic, kemiriLogo } from "../constants";
+import parse from "html-react-parser";
 
 import {
   IoFastFoodOutline,
@@ -144,10 +145,7 @@ export default function Main() {
               <>
                 <div className="result-data flex items-start gap-5">
                   <img src={kemiriLogo} className="w-8 " />
-                  <p
-                    dangerouslySetInnerHTML={{ __html: resultData }}
-                    className="result-text pb-7 text-base"
-                  ></p>
+                  <div>{parse(resultData)}</div>
                 </div>
               </>
             ) : (
@@ -190,9 +188,9 @@ export default function Main() {
             }`}
           >
             <input
-              className="bg-transparent w-full px-5 py-4 text-md font-normal border-none outline-none dark:placeholder-neutral-500 "
+              className="text-neutral-950 dark:text-white bg-transparent w-full px-5 py-4 text-md font-normal border-none outline-none dark:placeholder-neutral-500 "
               type="text"
-              placeholder="Masukkan prompt di sini"
+              placeholder="Tulis pertanyaan di sini"
               onFocus={handleFocus}
               onBlur={handleBlur}
               onChange={(e) => {
